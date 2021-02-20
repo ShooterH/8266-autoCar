@@ -111,7 +111,7 @@ class motor
 ## 2.3安装
   如图示连接元器件
 
-![图示](C:\Users\Zihan\Documents\Source\remoteCar\img\layout.png)
+![图示](https://github.com/ShooterH/8266-autoCar/blob/main/img/layout.png)
 
 # 3.总结
 
