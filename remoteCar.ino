@@ -16,8 +16,8 @@ void setup()
     Serial.println("port setup ok");
     
     /*设置引脚为输出模式*/
-    A.initilaze();
-    B.initilaze();
+    A.initialize();
+    B.initialize();
     sensorInitialize();
     Serial.println("setup ok");
 }
