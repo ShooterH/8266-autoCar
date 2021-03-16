@@ -9,12 +9,12 @@ class motor
         int port[2];
         int power = 100;
         int EN;
-        void initilaze(void)
+        void initialize(void)
         {
             pinMode(port[0],OUTPUT);
             pinMode(port[1],OUTPUT);
             pinMode(EN,OUTPUT);
-            Serial.println("Initlazed");
+            Serial.println("Initialized");
         }
         void run(void)
         {

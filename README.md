@@ -56,8 +56,8 @@ void setup()
     Serial.println("port setup ok");
     
     /*设置引脚为输出模式*/
-    A.initilaze();
-    B.initilaze();
+    A.initialize();
+    B.initialize();
     Serial.println("setup ok");
 }
 ```
@@ -73,7 +73,7 @@ class motor
         int port[2];
         int power = 100;
         int EN;
-        void initilaze(void)
+        void initialize(void)
         {
             pinMode(port[0],OUTPUT);
             pinMode(port[1],OUTPUT);
@@ -141,8 +141,8 @@ void setup()
     Serial.println("port setup ok");
     
     /*设置引脚为输出模式*/
-    A.initilaze();
-    B.initilaze();
+    A.initialize();
+    B.initialize();
     sensorInitialize();
     Serial.println("setup ok");
 }
@@ -187,7 +187,7 @@ class motor
         int port[2];
         int power = 100;
         int EN;
-        void initilaze(void)
+        void initialize(void)
         {
             pinMode(port[0],OUTPUT);
             pinMode(port[1],OUTPUT);
