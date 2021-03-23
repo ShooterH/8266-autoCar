@@ -5,8 +5,7 @@
     1. 原理简介
 1. 开始制作
     1. 所需材料
-    1. 代码编写
-        1. 代码节选
+    1. 项目编译
     3. 安装
 1. 总结 
 1. 附录
@@ -34,67 +33,9 @@
     减速马达 x 4
     亚克力底盘 x 2
     五金材料若干
-## 2.2代码编写
-        在准备好所需材料后，我们需要向单片机烧写程序。以下为代码节选，完整版见附录1。
-### 2.2.1代码节选
+## 2.2项目编译
+        使用ArduinoIDE打开ino文件，连接nodemcu并点击“上传(upload)”
 
-
-```cpp
-#include "MotorControl.h"
-motor A,B;
-void setup()
-{
-    Serial.begin(9600);
-    
-    /*马达引脚初始化*/
-    A.port[0] = IN1;
-    A.port[1] = IN2;
-    B.port[0] = IN3;
-    B.port[1] = IN4;
-    A.EN      = ENA;
-    B.EN      = ENB;
-    Serial.println("port setup ok");
-    
-    /*设置引脚为输出模式*/
-    A.initialize();
-    B.initialize();
-    Serial.println("setup ok");
-}
-```
-```cpp
-/*该头文件定义了有关减速电机驱动的函数*/
-const int FORWARD[] ={0,1};
-const int BACKWARD[]={1,0};
-const int STOP[]    ={0,0};
-class motor
-{
-    public:
-        int com[2];
-        int port[2];
-        int power = 100;
-        int EN;
-        void initialize(void)
-        {
-            pinMode(port[0],OUTPUT);
-            pinMode(port[1],OUTPUT);
-            pinMode(EN,OUTPUT);
-            Serial.println("Initlazed");
-        }
-        void run(void)
-        {
-            digitalWrite(port[0],com[0]);
-            digitalWrite(port[1],com[1]);
-            digitalWrite(EN,HIGH);
-            Serial.println("running");
-            if (power != 100)
-            {
-                Serial.println("running with PWM");
-                delay(10 * power);
-                digitalWrite(EN,LOW);
-            }
-        }
-};
-```
 ### 2.2.2 思路简介
         TCRT5000 传感器的红外发射二极管不断发射红外线，当发射出的红外线没有被反射回来或被反射回来但强度不够大时，红外接收管一直处于关断状态，此时模块的输出端为高电平，指示二极管一直处于熄灭状态；
         被检测物体出现在检测范围内时，红外线被反射回来且强度足够大，红外接收管饱和，此时模块的输出端为低电平，指示二极管被点亮
