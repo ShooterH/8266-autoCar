@@ -11,12 +11,10 @@ void sensorInitialize(void)
     pinMode(S4,INPUT);
 }
 
-int *scan(void)
+void scan(int* status)
 {
-    int status[4];
     status[0] = digitalRead(S1);
     status[1] = digitalRead(S2);
     status[2] = digitalRead(S3);
     status[3] = digitalRead(S4);
-    return status;
 }

@@ -24,7 +24,8 @@ void setup()
 
 void loop()
 {
-    int *sig = scan();
+    int sig[4];
+    scan(sig);
     if(sig[0] == 0 && sig[1] == 1 && sig[2] == 1 && sig[3] == 0)
     {
         comWr(FORWARD,100,A);
@@ -47,5 +48,4 @@ void loop()
     }
     A.run();
     B.run();
-    delete[] sig;
 }
